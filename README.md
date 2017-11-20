@@ -1,4 +1,4 @@
-# fenaki
+# Fenaki
 
 Fenaki is a Chrome extension that can replace remote HTML content in Chrome.
 
