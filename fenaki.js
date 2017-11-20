@@ -1,16 +1,17 @@
-// window.alert("Enabled!");
+//window.alert("Enabled!");
 
 window.onload = function() {
-    // window.alert("Enabled!");
+    //window.alert("Enabled!");
     var mappingRequest = new XMLHttpRequest();
     mappingRequest.onreadystatechange = function() {
         if (mappingRequest.readyState === 4) {
             var mappingResponse = mappingRequest.responseText;
+            //window.alert(mappingResponse);
             var mappings = JSON.parse(mappingResponse).mapping;
             for (i in mappings) {
 
                 if (window.location == mappings[i].replace) {
-                    window.alert("Replacing!");
+                    //window.alert("Replacing!");
                     var htmlRequest = new XMLHttpRequest();
                     htmlRequest.onreadystatechange = function() {
                         if (mappingRequest.readyState === 4) {
@@ -32,7 +33,7 @@ window.onload = function() {
         }
     };
 
-    mappingRequest.open('GET', 'http://localhost/mapping.json');
+    mappingRequest.open('GET', 'http://localhost:8887/mapping.json');
     mappingRequest.send(null);
 
 }
