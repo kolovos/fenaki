@@ -1,7 +1,9 @@
 //window.alert("Enabled!");
 
 window.onload = function() {
+  
     //window.alert("Enabled!");
+    /*
     var mappingRequest = new XMLHttpRequest();
     mappingRequest.onreadystatechange = function() {
         if (mappingRequest.readyState === 4) {
@@ -35,5 +37,5 @@ window.onload = function() {
 
     mappingRequest.open('GET', 'http://localhost:8887/mapping.json');
     mappingRequest.send(null);
-
+    */
 }
