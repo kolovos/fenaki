@@ -1,3 +1,3 @@
 document.open();
-document.write(unescape(config));
+document.write(unescape(html));
 document.close();

@@ -3,15 +3,9 @@
 "description":"Replaces remote HTML pages with local content",
 "version":"1",
 "manifest_version":2,
-"content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["fenaki.js"]
-    }
-  ],
-  "browser_action" : {
-    "default_popup": "fenaki.html"
-  },  
+"browser_action" : {
+  "default_popup": "fenaki.html"
+},  
 "permissions": [
     "activeTab",
     "<all_urls>"

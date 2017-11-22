@@ -1,41 +1,51 @@
-//window.alert("Enabled!");
+var htdocs = "file:///Users/dkolovos/git/fenaki/htdocs/";
 
-window.onload = function() {
+var el = document.getElementById('content');
+chrome.tabs.getSelected(function (tab) { 
   
-    //window.alert("Enabled!");
-    /*
-    var mappingRequest = new XMLHttpRequest();
-    mappingRequest.onreadystatechange = function() {
-        if (mappingRequest.readyState === 4) {
-            var mappingResponse = mappingRequest.responseText;
-            //window.alert(mappingResponse);
-            var mappings = JSON.parse(mappingResponse).mapping;
-            for (i in mappings) {
+  var url = tab.url;
+  
+  var mappingRequest = new XMLHttpRequest();
+  mappingRequest.onreadystatechange = function() {
+      if (mappingRequest.readyState === 4) {
+          var mappingResponse = mappingRequest.responseText;
+          var mappings = JSON.parse(mappingResponse).mapping;
+          var foundReplacement = false;        
+          for (i in mappings) {
+              if (url == mappings[i].replace) {
+                  var htmlRequest = new XMLHttpRequest();
+                  htmlRequest.onreadystatechange = function() {
+                      if (mappingRequest.readyState === 4) {
+                          var htmlResponse = htmlRequest.responseText;
+                          
+                          chrome.tabs.executeScript({
+                            code: 'var html = `' + escape(htmlResponse) + '`;'
+                          }, function() {
+                            chrome.tabs.executeScript({file: './embedded.js'});
+                          });
+                          
+                      }
+                  }
 
-                if (window.location == mappings[i].replace) {
-                    //window.alert("Replacing!");
-                    var htmlRequest = new XMLHttpRequest();
-                    htmlRequest.onreadystatechange = function() {
-                        if (mappingRequest.readyState === 4) {
-                            var htmlResponse = htmlRequest.responseText;
-                            document.open();
-                            document.write(htmlResponse);
-                            document.close();
-                        }
-                    }
+                  htmlRequest.open('GET', htdocs + mappings[i].with);
+                  htmlRequest.send(null);
+                  setStatus("Replaced with " + mappings[i].with);
+                  foundReplacement = true;
+                  break;
+              }
+          }
+          if (!foundReplacement) {
+            setStatus("Could not find a mapping for " + url);
+          }
+      }
+  };
+  
+  setStatus("Could not find mapping.json");
+  mappingRequest.open('GET', htdocs + 'mapping.json');
+  mappingRequest.send(null);
+  
+});
 
-                    htmlRequest.open('GET', mappings[i].with);
-                    htmlRequest.send(null);
-                }
-
-                //window.alert(mappings[i].replace);
-                //window.alert(mappings[i].with);
-                //window.alert(window.location);
-            }
-        }
-    };
-
-    mappingRequest.open('GET', 'http://localhost:8887/mapping.json');
-    mappingRequest.send(null);
-    */
+function setStatus(status) {
+  document.getElementById("status").textContent = status;
 }
