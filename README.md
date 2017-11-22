@@ -21,8 +21,8 @@ This is a text (JSON) file that defines how Fenaki should map URLs to local file
 {
 "mapping": [
     {
-      "replace": "http://www.in.gr/",
-      "with": "in.html"
+        "replace": "http://www.in.gr/",
+        "with": "in.html"
     },
     {
     	"replace": "http://news247.gr/",
