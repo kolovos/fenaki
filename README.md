@@ -17,7 +17,7 @@ Fenaki is a Chrome extension that can replace remote HTML content with content c
 
 This is a text (JSON) file that defines how Fenaki should map URLs to local files. In the example below, when you navigate to http://www.in.gr/, Fenaki will load the HTML content of the page from in.html instead (i.e. from the in.html file in the directory you selected in step 6 above.
 
-```
+```json
 {
 "mapping": [
     {
