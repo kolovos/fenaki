@@ -3,6 +3,11 @@
 "description":"Replaces remote HTML pages with local content",
 "version":"1",
 "manifest_version":2,
+"icons": { 
+  "16":"images/icon.png", 
+  "48":"images/icon.png", 
+  "128":"images/icon.png" 
+},
 "browser_action" : {
   "default_popup": "fenaki.html"
 },
