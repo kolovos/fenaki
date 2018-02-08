@@ -33,7 +33,7 @@ This is a text (JSON) file that defines how Fenaki should map URLs to local file
 ```
 # Troubleshooting
 
-When local pages are rendered, their JavaScript scripts don't have access to the `console` object. As such calls to `console.log()` etc. will fail. To work around this, you can add the following script to your local page (putting it under the `<body>` element should do the trick).
+When local pages are rendered, their JavaScript scripts don't have access to the `console` object. As such, calls to `console.log()` etc. will fail. To work around this, you can add the following script to your local page (putting it under the `<body>` element should do the trick).
 
 ```html
 <script>
